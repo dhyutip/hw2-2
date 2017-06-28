@@ -29,6 +29,10 @@
         $error_message = ''; 
     }
 
+    if ( $interest_rate > 15 ) {
+        $error_message = 'Interest rate must be less than 16'; 
+	}
+
     // if an error message exists, go to the index page
     if ($error_message != '') {
         include('index.php');
@@ -50,7 +54,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Future Value Calculator</title>
+    <title>Future Value Calculator Result</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
@@ -68,6 +72,11 @@
 
         <label>Future Value:</label>
         <span><?php echo $future_value_f; ?></span><br>
+	
+	<?php
+	echo "This calculation was done on " . date("m/d/Y") ;
+	?>
+
     </main>
 </body>
 </html>
